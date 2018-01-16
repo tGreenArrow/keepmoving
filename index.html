@@ -59,6 +59,28 @@
             line-height: 60px;
             background-color: #ccc;
         }
+        .lunBo_phone{
+            width: 380px;
+            height: 380px;
+            border: 1px solid red;
+            /*background-color: yellow;*/
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .lunBo_phone>ul{
+            width: 1600px;
+            height: 380px;
+            /*background-color: red;*/
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        .lunBo_phone>ul>li{
+            width: 380px;
+            height: 380px;
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +107,32 @@
             
         </ul>
     </div>
+    <div class="lunBo_phone">
+        <ul>
+            <li><img src="images/110.jpg" alt=""></li>
+            <li><img src="images/115.jpg" alt=""></li>
+            <li><img src="images/112.jpg" alt=""></li>
+            <li><img src="images/110.jpg" alt=""></li>
+        </ul>
+    </div>
 </div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var index=0;
+        setInterval(function () {
+            index++;
+            if (index>3){
+                index=1;
+                $('.lunBo_phone ul').css({
+                    left:0
+                })
+            }
+            $('.lunBo_phone ul').animate({
+                left:-(index*380)+'px'
+            })
+        },1000)
+    })
+</script>
 </body>
 </html>
